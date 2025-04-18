@@ -23,8 +23,9 @@ const insertQuestionnaireLink = (listOfCategories, linkHTML, document, response)
           for (let i = 0; i < elements.length; i++) {
             const el = elements[i];
             const link = document.createElement("a");
-            link.setAttribute("href", "https://example.org/questionnaire/high-risk");
+            link.setAttribute("href", linkHTML);
             link.setAttribute("target", "_blank");
+            link.setAttribute("class","questionnaire-lens");
       
             if (shouldAppend) {
               // Append the link as a new element inside the existing element
@@ -41,12 +42,12 @@ const insertQuestionnaireLink = (listOfCategories, linkHTML, document, response)
         }
       });
       
-
+//TODO check language like (diabetes lens)
     // No matching category tags → inject banner at top
     if (!foundCategory) {
         const bannerDiv = document.createElement("div");
         bannerDiv.innerHTML = `
-        <div class="alert-banner" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
+        <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
           ⚠️ This medication may cause high-risk side effects.
           <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Fill out safety questionnaire</a>
         </div>
