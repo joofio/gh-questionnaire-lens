@@ -31,7 +31,7 @@
           },
           {
             "url": "content",
-            "valueString": "Lente de Interacción"
+            "valueString": "Lente de Interacci\u00f3n"
           }
         ]
       },
@@ -44,7 +44,7 @@
           },
           {
             "url": "content",
-            "valueString": "Lente de Interação"
+            "valueString": "Lente de Intera\u00e7\u00e3o"
           }
         ]
       },
@@ -61,7 +61,8 @@
           }
         ]
       }
-    ]},
+    ]
+  },
   "date": "2024-06-12T13:40:03.690Z",
   "title": "Interaction Lens",
   "_title": {
@@ -75,7 +76,7 @@
           },
           {
             "url": "content",
-            "valueString": "Lente de Interacción"
+            "valueString": "Lente de Interacci\u00f3n"
           }
         ]
       },
@@ -88,7 +89,7 @@
           },
           {
             "url": "content",
-            "valueString": "Lente de Interação"
+            "valueString": "Lente de Intera\u00e7\u00e3o"
           }
         ]
       },
@@ -105,7 +106,8 @@
           }
         ]
       }
-    ]},
+    ]
+  },
   "status": "draft",
   "experimental": true,
   "type": {
@@ -139,7 +141,7 @@
           },
           {
             "url": "content",
-            "valueString": "Una lente que resalta cualquier información relacionada con interacciones entre otros medicamentos o ePIs."
+            "valueString": "Una lente que resalta cualquier informaci\u00f3n relacionada con interacciones entre otros medicamentos o ePIs."
           }
         ]
       },
@@ -152,7 +154,7 @@
           },
           {
             "url": "content",
-            "valueString": "Uma lente que destaca qualquer informação relacionada com interações entre outros medicamentos ou ePIs."
+            "valueString": "Uma lente que destaca qualquer informa\u00e7\u00e3o relacionada com intera\u00e7\u00f5es entre outros medicamentos ou ePIs."
           }
         ]
       },
@@ -165,7 +167,7 @@
           },
           {
             "url": "content",
-            "valueString": "En linse, der fremhæver al information relateret til interaktioner mellem andre lægemidler eller ePI'er."
+            "valueString": "En linse, der fremh\u00e6ver al information relateret til interaktioner mellem andre l\u00e6gemidler eller ePI'er."
           }
         ]
       }
@@ -182,7 +184,7 @@
     }
   ],
   "purpose": "Clarify the important things related to interactions between other ePIs in the ePI provided",
-   "_purpose": {
+  "_purpose": {
     "extension": [
       {
         "url": "http://hl7.org/fhir/StructureDefinition/translation",
@@ -206,7 +208,7 @@
           },
           {
             "url": "content",
-            "valueString": "Esclarecer os pontos importantes relacionados com interações entre outros ePIs no ePI fornecido."
+            "valueString": "Esclarecer os pontos importantes relacionados com intera\u00e7\u00f5es entre outros ePIs no ePI fornecido."
           }
         ]
       },
@@ -219,14 +221,14 @@
           },
           {
             "url": "content",
-            "valueString": "Klargør de vigtige ting vedrørende interaktioner mellem andre ePI'er i den angivne ePI."
+            "valueString": "Klarg\u00f8r de vigtige ting vedr\u00f8rende interaktioner mellem andre ePI'er i den angivne ePI."
           }
         ]
       }
     ]
   },
   "usage": "This lens requires a preprocessed ePI, and an IPS to work. You can import this lens directly to your FHIR Server which suports Library Resource type.",
-   "_usage": {
+  "_usage": {
     "extension": [
       {
         "url": "http://hl7.org/fhir/StructureDefinition/translation",
@@ -250,7 +252,7 @@
           },
           {
             "url": "content",
-            "valueString": "Esta lente requer uma ePI pré-processada e um IPS para funcionar. Podes importar esta lente diretamente para o teu servidor FHIR que suporte o tipo de recurso Library."
+            "valueString": "Esta lente requer uma ePI pr\u00e9-processada e um IPS para funcionar. Podes importar esta lente diretamente para o teu servidor FHIR que suporte o tipo de recurso Library."
           }
         ]
       },
@@ -263,13 +265,13 @@
           },
           {
             "url": "content",
-            "valueString": "Denne linse kræver en forbehandlet ePI og en IPS for at fungere. Du kan importere denne linse direkte til din FHIR-server, som understøtter ressource-typen Library."
+            "valueString": "Denne linse kr\u00e6ver en forbehandlet ePI og en IPS for at fungere. Du kan importere denne linse direkte til din FHIR-server, som underst\u00f8tter ressource-typen Library."
           }
         ]
       }
     ]
   },
-  "copyright": "© 2024 Gravitate Health",
+  "copyright": "\u00a9 2024 Gravitate Health",
   "parameter": [
     {
       "use": "in",
@@ -282,5 +284,6 @@
       "contentType": "application/javascript",
       "data": ""
     }
-  ]
+  ],
+  "data": "bGV0IHB2RGF0YSA9IHB2OwpsZXQgaHRtbERhdGEgPSBodG1sOwoKbGV0IGVwaURhdGEgPSBlcGk7CmxldCBpcHNEYXRhID0gaXBzOwoKbGV0IGdldFNwZWNpZmljYXRpb24gPSAoKSA9PiB7CiAgICByZXR1cm4gIjIuMC4zLXF1ZXN0aW9ubmFpcmUtYmFubmVyIjsKfTsKLy9kb2N1bWVudCwgaHRtbERhdGEsIGJhbm5lckhUTUwKLy8KY29uc3QgaW5zZXJ0UXVlc3Rpb25uYWlyZUxpbmsgPSAobGlzdE9mQ2F0ZWdvcmllcywgbGlua0hUTUwsIGRvY3VtZW50LCByZXNwb25zZSkgPT4gewogICAgbGV0IHNob3VsZEFwcGVuZD1mYWxzZTsgLy9mb3IgZnV0dXJlIHVzYWdlCiAgICBsZXQgZm91bmRDYXRlZ29yeSA9IGZhbHNlOwogICAgY29uc29sZS5sb2cobGlzdE9mQ2F0ZWdvcmllcykKICAgIGNvbnNvbGUubG9nKGxpc3RPZkNhdGVnb3JpZXMubGVuZ3RoKQogICAgbGlzdE9mQ2F0ZWdvcmllcy5mb3JFYWNoKChjbGFzc05hbWUpID0+IHsKICAgICAgICBpZiAoCiAgICAgICAgICByZXNwb25zZS5pbmNsdWRlcyhgY2xhc3M9IiR7Y2xhc3NOYW1lfWApIHx8CiAgICAgICAgICByZXNwb25zZS5pbmNsdWRlcyhgY2xhc3M9JyR7Y2xhc3NOYW1lfWApCiAgICAgICAgKSB7CiAgICAgICAgICBjb25zdCBlbGVtZW50cyA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlDbGFzc05hbWUoY2xhc3NOYW1lKTsKICAgICAgICAgIGZvciAobGV0IGkgPSAwOyBpIDwgZWxlbWVudHMubGVuZ3RoOyBpKyspIHsKICAgICAgICAgICAgY29uc3QgZWwgPSBlbGVtZW50c1tpXTsKICAgICAgICAgICAgY29uc3QgbGluayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoImEiKTsKICAgICAgICAgICAgbGluay5zZXRBdHRyaWJ1dGUoImhyZWYiLCBsaW5rSFRNTCk7CiAgICAgICAgICAgIGxpbmsuc2V0QXR0cmlidXRlKCJ0YXJnZXQiLCAiX2JsYW5rIik7CiAgICAgICAgICAgIGxpbmsuc2V0QXR0cmlidXRlKCJjbGFzcyIsInF1ZXN0aW9ubmFpcmUtbGVucyIpOwogICAgICAKICAgICAgICAgICAgaWYgKHNob3VsZEFwcGVuZCkgewogICAgICAgICAgICAgIC8vIEFwcGVuZCB0aGUgbGluayBhcyBhIG5ldyBlbGVtZW50IGluc2lkZSB0aGUgZXhpc3RpbmcgZWxlbWVudAogICAgICAgICAgICAgIGxpbmsuaW5uZXJIVE1MID0gIvCfk50gRmlsbCBvdXQgc2FmZXR5IHF1ZXN0aW9ubmFpcmUiOwogICAgICAgICAgICAgIGVsLmFwcGVuZENoaWxkKGxpbmspOwogICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgIC8vIFdyYXAgdGhlIGV4aXN0aW5nIGNvbnRlbnRzIG9mIHRoZSBlbGVtZW50IGluIHRoZSBsaW5rCiAgICAgICAgICAgICAgbGluay5pbm5lckhUTUwgPSBlbC5pbm5lckhUTUw7CiAgICAgICAgICAgICAgZWwuaW5uZXJIVE1MID0gIiI7CiAgICAgICAgICAgICAgZWwuYXBwZW5kQ2hpbGQobGluayk7CiAgICAgICAgICAgIH0KICAgICAgICAgIH0KICAgICAgICAgIGZvdW5kQ2F0ZWdvcnkgPSB0cnVlOwogICAgICAgIH0KICAgICAgfSk7CiAgICAgIAovL1RPRE8gY2hlY2sgbGFuZ3VhZ2UgbGlrZSAoZGlhYmV0ZXMgbGVucykKICAgIC8vIE5vIG1hdGNoaW5nIGNhdGVnb3J5IHRhZ3Mg4oaSIGluamVjdCBiYW5uZXIgYXQgdG9wCiAgICBpZiAoIWZvdW5kQ2F0ZWdvcnkpIHsKICAgICAgICBjb25zdCBiYW5uZXJEaXYgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJkaXYiKTsKICAgICAgICBiYW5uZXJEaXYuaW5uZXJIVE1MID0gYAogICAgICAgIDxkaXYgY2xhc3M9ImFsZXJ0LWJhbm5lciBxdWVzdGlvbm5haXJlLWxlbnMiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmRkZGQ7cGFkZGluZzoxZW07Ym9yZGVyOjFweCBzb2xpZCAjZmY4ODg4O21hcmdpbi1ib3R0b206MWVtOyI+CiAgICAgICAgICDimqDvuI8gVGhpcyBtZWRpY2F0aW9uIG1heSBjYXVzZSBoaWdoLXJpc2sgc2lkZSBlZmZlY3RzLgogICAgICAgICAgPGEgaHJlZj0iJHtsaW5rSFRNTH0iIHRhcmdldD0iX2JsYW5rIiBzdHlsZT0ibWFyZ2luLWxlZnQ6IDFlbTsiPkZpbGwgb3V0IHNhZmV0eSBxdWVzdGlvbm5haXJlPC9hPgogICAgICAgIDwvZGl2PgogICAgICBgOwoKICAgICAgICBjb25zdCBib2R5ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiYm9keSIpOwogICAgICAgIGlmIChib2R5KSB7CiAgICAgICAgICAgIGJvZHkuaW5zZXJ0QmVmb3JlKGJhbm5lckRpdiwgYm9keS5maXJzdENoaWxkKTsKICAgICAgICB9CiAgICB9CgogICAgLy8gQ2xlYW4gaGVhZCAoc2FtZSBhcyB5b3VyIG9yaWdpbmFsIGxvZ2ljKQogICAgaWYgKGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdOYW1lKCJoZWFkIikubGVuZ3RoID4gMCkgewogICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdOYW1lKCJoZWFkIilbMF0ucmVtb3ZlKCk7CiAgICB9CgogICAgLy8gRXh0cmFjdCBIVE1MIHJlc3VsdAogICAgaWYgKGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdOYW1lKCJib2R5IikubGVuZ3RoID4gMCkgewogICAgICAgIHJlc3BvbnNlID0gZG9jdW1lbnQuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImJvZHkiKVswXS5pbm5lckhUTUw7CiAgICAgICAgY29uc29sZS5sb2coIlJlc3BvbnNlOiAiICsgcmVzcG9uc2UpOwogICAgfSBlbHNlIHsKICAgICAgICBjb25zb2xlLmxvZygiUmVzcG9uc2U6ICIgKyBkb2N1bWVudC5kb2N1bWVudEVsZW1lbnQuaW5uZXJIVE1MKTsKICAgICAgICByZXNwb25zZSA9IGRvY3VtZW50LmRvY3VtZW50RWxlbWVudC5pbm5lckhUTUw7CiAgICB9CgogICAgaWYgKCFyZXNwb25zZSB8fCByZXNwb25zZS50cmltKCkgPT09ICIiKSB7CiAgICAgICAgdGhyb3cgbmV3IEVycm9yKCJBbm5vdGF0aW9uIHByb2Nlc3MgZmFpbGVkOiBlbXB0eSBvciBudWxsIHJlc3BvbnNlIik7CiAgICB9CgogICAgcmV0dXJuIHJlc3BvbnNlOwp9OwoKbGV0IGVuaGFuY2UgPSBhc3luYyAoKSA9PiB7CgogICAgaWYgKCFlcGlEYXRhIHx8ICFlcGlEYXRhLmVudHJ5IHx8IGVwaURhdGEuZW50cnkubGVuZ3RoID09PSAwKSB7CiAgICAgICAgdGhyb3cgbmV3IEVycm9yKCJlUEkgaXMgZW1wdHkgb3IgaW52YWxpZC4iKTsKICAgIH0KICAgIGxldCBsaXN0T2ZDYXRlZ29yaWVzVG9TZWFyY2ggPSBbImdyYXYtMyJdOyAvL3doYXQgdG8gbG9vayBpbiBleHRlbnNpb25zIC1tYWRlIHVwIGNvZGUgYmVjYXVzZSB0aGVyZSBpcyBub25lCgogICAgLy8gTWF0Y2ggbGlzdHMKICAgIGNvbnN0IEJVTkRMRV9JREVOVElGSUVSX0xJU1QgPSBbImVwaWJ1bmRsZS0xMjMiLCAiZXBpYnVuZGxlLWFiYyJdOwogICAgY29uc3QgUFJPRFVDVF9JREVOVElGSUVSX0xJU1QgPSBbIkNJVC0yMDQ0NDciLCAiUklTLTE5NzM2MSJdOwoKICAgIGNvbnN0IFFVRVNUSU9OTkFJUkVfVVJMID0gImh0dHBzOi8vZXhhbXBsZS5vcmcvcXVlc3Rpb25uYWlyZS9oaWdoLXJpc2siOwoKICAgIGxldCBtYXRjaEZvdW5kID0gZmFsc2U7CgogICAgLy8gQ2hlY2sgYnVuZGxlLmlkZW50aWZpZXIudmFsdWUKICAgIGlmICgKICAgICAgICBlcGlEYXRhLmlkZW50aWZpZXIgJiYKICAgICAgICBCVU5ETEVfSURFTlRJRklFUl9MSVNULmluY2x1ZGVzKGVwaURhdGEuaWRlbnRpZmllci52YWx1ZSkKICAgICkgewogICAgICAgIGNvbnNvbGUubG9nKCLwn5SXIE1hdGNoZWQgZVBJIEJ1bmRsZS5pZGVudGlmaWVyOiIsIGVwaURhdGEuaWRlbnRpZmllci52YWx1ZSk7CiAgICAgICAgbWF0Y2hGb3VuZCA9IHRydWU7CiAgICB9CgogICAgLy8gQ2hlY2sgTWVkaWNpbmFsUHJvZHVjdERlZmluaXRpb24uaWRlbnRpZmllci52YWx1ZQogICAgZXBpRGF0YS5lbnRyeS5mb3JFYWNoKChlbnRyeSkgPT4gewogICAgICAgIGNvbnN0IHJlcyA9IGVudHJ5LnJlc291cmNlOwogICAgICAgIGlmIChyZXM/LnJlc291cmNlVHlwZSA9PT0gIk1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uIikgewogICAgICAgICAgICBjb25zdCBpZHMgPSByZXMuaWRlbnRpZmllciB8fCBbXTsKICAgICAgICAgICAgaWRzLmZvckVhY2goKGlkKSA9PiB7CiAgICAgICAgICAgICAgICBpZiAoUFJPRFVDVF9JREVOVElGSUVSX0xJU1QuaW5jbHVkZXMoaWQudmFsdWUpKSB7CiAgICAgICAgICAgICAgICAgICAgY29uc29sZS5sb2coIvCfkoogTWF0Y2hlZCBNZWRpY2luYWxQcm9kdWN0RGVmaW5pdGlvbi5pZGVudGlmaWVyOiIsIGlkLnZhbHVlKTsKICAgICAgICAgICAgICAgICAgICBtYXRjaEZvdW5kID0gdHJ1ZTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfSk7CiAgICAgICAgfQogICAgfSk7CgogICAgLy8gZVBJIHRyYXNsYXRpb24gZnJvbSB0ZXJtaW5vbG9neSBjb2RlcyB0byB0aGVpciBodW1hbiByZWRhYmxlIHRyYW5zbGF0aW9ucyBpbiB0aGUgc2VjdGlvbnMKICAgIC8vIGluIHRoaXMgY2FzZSwgaWYgaXMgZG9lcyBub3QgZmluZCBhIHBsYWNlLCBhZGRzIGl0IHRvIHRoZSB0b3Agb2YgdGhlIGVQSQogICAgbGV0IGNvbXBvc2l0aW9ucyA9IDA7CiAgICBsZXQgY2F0ZWdvcmllcyA9IFtdOwogICAgZXBpLmVudHJ5LmZvckVhY2goKGVudHJ5KSA9PiB7CiAgICAgICAgaWYgKGVudHJ5LnJlc291cmNlLnJlc291cmNlVHlwZSA9PSAiQ29tcG9zaXRpb24iKSB7CiAgICAgICAgICAgIGNvbXBvc2l0aW9ucysrOwogICAgICAgICAgICAvL0l0ZXJhdGVkIHRocm91Z2ggdGhlIENvbmRpdGlvbiBlbGVtZW50IHNlYXJjaGluZyBmb3IgY29uZGl0aW9ucwogICAgICAgICAgICBlbnRyeS5yZXNvdXJjZS5leHRlbnNpb24uZm9yRWFjaCgoZWxlbWVudCkgPT4gewoKICAgICAgICAgICAgICAgIC8vIENoZWNrIGlmIHRoZSBwb3NpdGlvbiBvZiB0aGUgZXh0ZW5zaW9uWzFdIGlzIGNvcnJlY3QKICAgICAgICAgICAgICAgIGlmIChlbGVtZW50LmV4dGVuc2lvblsxXS51cmwgPT0gImNvbmNlcHQiKSB7CiAgICAgICAgICAgICAgICAgICAgLy8gU2VhcmNoIHRocm91Z2ggdGhlIGRpZmZlcmVudCB0ZXJtaW5vbG9naWVzIHRoYXQgbWF5IGJlIGF2YWlibGUgdG8gY2hlY2sgaW4gdGhlIGNvbmRpdGlvbgogICAgICAgICAgICAgICAgICAgIGlmIChlbGVtZW50LmV4dGVuc2lvblsxXS52YWx1ZUNvZGVhYmxlUmVmZXJlbmNlLmNvbmNlcHQgIT0gdW5kZWZpbmVkKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGVsZW1lbnQuZXh0ZW5zaW9uWzFdLnZhbHVlQ29kZWFibGVSZWZlcmVuY2UuY29uY2VwdC5jb2RpbmcuZm9yRWFjaCgKICAgICAgICAgICAgICAgICAgICAgICAgICAgIChjb2RpbmcpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zb2xlLmxvZygiRXh0ZW5zaW9uOiAiICsgZWxlbWVudC5leHRlbnNpb25bMF0udmFsdWVTdHJpbmcgKyAiOiIgKyBjb2RpbmcuY29kZSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAvLyBDaGVjayBpZiB0aGUgY29kZSBpcyBpbiB0aGUgbGlzdCBvZiBjYXRlZ29yaWVzIHRvIHNlYXJjaAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChsaXN0T2ZDYXRlZ29yaWVzVG9TZWFyY2guaW5jbHVkZXMoY29kaW5nLmNvZGUpKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8vIENoZWNrIGlmIHRoZSBjYXRlZ29yeSBpcyBhbHJlYWR5IGluIHRoZSBsaXN0IG9mIGNhdGVnb3JpZXMKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2F0ZWdvcmllcy5wdXNoKGVsZW1lbnQuZXh0ZW5zaW9uWzBdLnZhbHVlU3RyaW5nKTsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgICk7CiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9KTsKICAgICAgICB9CiAgICB9KTsKICAgIGlmIChjb21wb3NpdGlvbnMgPT0gMCkgewogICAgICAgIHRocm93IG5ldyBFcnJvcignQmFkIGVQSTogbm8gY2F0ZWdvcnkgIkNvbXBvc2l0aW9uIiBmb3VuZCcpOwogICAgfQoKICAgIGlmICghbWF0Y2hGb3VuZCkgewogICAgICAgIGNvbnNvbGUubG9nKCJlUEkgaXMgbm90IGZvciBhIGhpZ2gtcmlzayBzaWRlIGVmZmVjdCBtZWRpY2F0aW9uIik7CiAgICAgICAgcmV0dXJuIGh0bWxEYXRhOwogICAgfQoKICAgIGVsc2UgewoKCiAgICAgICAgbGV0IHJlc3BvbnNlID0gaHRtbERhdGE7CiAgICAgICAgbGV0IGRvY3VtZW50OwoKICAgICAgICBpZiAodHlwZW9mIHdpbmRvdyA9PT0gInVuZGVmaW5lZCIpIHsKICAgICAgICAgICAgbGV0IGpzZG9tID0gYXdhaXQgaW1wb3J0KCJqc2RvbSIpOwogICAgICAgICAgICBsZXQgeyBKU0RPTSB9ID0ganNkb207CiAgICAgICAgICAgIGxldCBkb20gPSBuZXcgSlNET00oaHRtbERhdGEpOwogICAgICAgICAgICBkb2N1bWVudCA9IGRvbS53aW5kb3cuZG9jdW1lbnQ7CiAgICAgICAgICAgIHJldHVybiBpbnNlcnRRdWVzdGlvbm5haXJlTGluayhjYXRlZ29yaWVzLCBRVUVTVElPTk5BSVJFX1VSTCwgZG9jdW1lbnQsIHJlc3BvbnNlKTsKICAgICAgICAgICAgLy9saXN0T2ZDYXRlZ29yaWVzLCBlbmhhbmNlVGFnLCBkb2N1bWVudCwgcmVzcG9uc2UKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBkb2N1bWVudCA9IHdpbmRvdy5kb2N1bWVudDsKICAgICAgICAgICAgcmV0dXJuIGluc2VydFF1ZXN0aW9ubmFpcmVMaW5rKGNhdGVnb3JpZXMsIFFVRVNUSU9OTkFJUkVfVVJMLCBkb2N1bWVudCwgcmVzcG9uc2UpOwogICAgICAgIH0KICAgIH07Cn07CgpyZXR1cm4gewogICAgZW5oYW5jZTogZW5oYW5jZSwKICAgIGdldFNwZWNpZmljYXRpb246IGdldFNwZWNpZmljYXRpb24sCn07Cg=="
 }
