@@ -58,6 +58,6 @@ describe("Questionnaire adding Annotation Script (non-invasive)", () => {
 
     console.log(`✅ Enhanced HTML saved to: ${outputPath}`);
 
-    expect(result).toContain("https://example.org/questionnaire/high-risk");
+    expect(result).toContain("<div class=\"alert-banner questionnaire-lens\"");
   });
 });
