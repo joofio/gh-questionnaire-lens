@@ -9,49 +9,102 @@ let getSpecification = () => {
 };
 //document, htmlData, bannerHTML
 //
-const insertQuestionnaireLink = (listOfCategories, linkHTML, document, response) => {
-    let shouldAppend=false; //for future usage
+const insertQuestionnaireLink = (listOfCategories, language, document, response) => {
+
+    if (language?.startsWith("pt")) {
+        linkHTML = "https://example.org/questionnaire/high-risk";
+
+    } else if (language?.startsWith("en")) {
+        linkHTML = "https://example.org/questionnaire/high-risk";
+
+    } else if (language?.startsWith("es")) {
+        linkHTML = "https://example.org/questionnaire/high-risk";
+
+    } else if (language?.startsWith("da")) {
+        linkHTML = "https://example.org/questionnaire/high-risk";
+
+    } else {
+        linkHTML = "https://example.org/questionnaire/high-risk";
+
+    }
+    let shouldAppend = false; //for future usage
     let foundCategory = false;
     console.log(listOfCategories)
     console.log(listOfCategories.length)
     listOfCategories.forEach((className) => {
         if (
-          response.includes(`class="${className}`) ||
-          response.includes(`class='${className}`)
+            response.includes(`class="${className}`) ||
+            response.includes(`class='${className}`)
         ) {
-          const elements = document.getElementsByClassName(className);
-          for (let i = 0; i < elements.length; i++) {
-            const el = elements[i];
-            const link = document.createElement("a");
-            link.setAttribute("href", linkHTML);
-            link.setAttribute("target", "_blank");
-            link.setAttribute("class","questionnaire-lens");
-      
-            if (shouldAppend) {
-              // Append the link as a new element inside the existing element
-              link.innerHTML = "📝 Fill out safety questionnaire";
-              el.appendChild(link);
-            } else {
-              // Wrap the existing contents of the element in the link
-              link.innerHTML = el.innerHTML;
-              el.innerHTML = "";
-              el.appendChild(link);
+            const elements = document.getElementsByClassName(className);
+            for (let i = 0; i < elements.length; i++) {
+                const el = elements[i];
+                const link = document.createElement("a");
+                link.setAttribute("href", linkHTML);
+                link.setAttribute("target", "_blank");
+                link.setAttribute("class", "questionnaire-lens");
+
+                if (shouldAppend) {
+                    // Append the link as a new element inside the existing element
+                    link.innerHTML = "📝 Fill out safety questionnaire";
+                    el.appendChild(link);
+                } else {
+                    // Wrap the existing contents of the element in the link
+                    link.innerHTML = el.innerHTML;
+                    el.innerHTML = "";
+                    el.appendChild(link);
+                }
             }
-          }
-          foundCategory = true;
+            foundCategory = true;
         }
-      });
-      
-//TODO check language like (diabetes lens)
+    });
+
     // No matching category tags → inject banner at top
     if (!foundCategory) {
+
         const bannerDiv = document.createElement("div");
-        bannerDiv.innerHTML = `
+
+        if (language?.startsWith("pt")) {
+            bannerDiv.innerHTML = `
+       <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
+  ⚠️ Este medicamento pode causar efeitos secundários de alto risco.
+  <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Preencher questionário de segurança</a>
+</div>
+      `;
+
+        } else if (language?.startsWith("en")) {
+            bannerDiv.innerHTML = `
         <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
           ⚠️ This medication may cause high-risk side effects.
           <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Fill out safety questionnaire</a>
         </div>
       `;
+
+        } else if (language?.startsWith("es")) {
+            bannerDiv.innerHTML = `
+       <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
+  ⚠️ Este medicamento puede causar efectos secundarios de alto riesgo.
+  <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Rellenar cuestionario de seguridad</a>
+</div>
+      `;
+        } else if (language?.startsWith("da")) {
+            bannerDiv.innerHTML = `
+      <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
+  ⚠️ Denne medicin kan forårsage alvorlige bivirkninger.
+  <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Udfyld sikkerhedsspørgeskema</a>
+</div>
+      `;
+        } else {
+            bannerDiv.innerHTML = `
+        <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
+          ⚠️ This medication may cause high-risk side effects.
+          <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Fill out safety questionnaire</a>
+        </div>
+      `;
+
+        }
+
+
 
         const body = document.querySelector("body");
         if (body) {
@@ -91,9 +144,29 @@ let enhance = async () => {
     const BUNDLE_IDENTIFIER_LIST = ["epibundle-123", "epibundle-abc"];
     const PRODUCT_IDENTIFIER_LIST = ["CIT-204447", "RIS-197361"];
 
-    const QUESTIONNAIRE_URL = "https://example.org/questionnaire/high-risk";
 
     let matchFound = false;
+    let languageDetected = null;
+
+    // 1. Check Composition.language
+    epiData.entry?.forEach((entry) => {
+        const res = entry.resource;
+        if (res?.resourceType === "Composition" && res.language) {
+            languageDetected = res.language;
+            console.log("🌍 Detected from Composition.language:", languageDetected);
+        }
+    });
+
+    // 2. If not found, check Bundle.language
+    if (!languageDetected && epiData.language) {
+        languageDetected = epiData.language;
+        console.log("🌍 Detected from Bundle.language:", languageDetected);
+    }
+
+    // 3. Fallback message
+    if (!languageDetected) {
+        console.warn("⚠️ No language detected in Composition or Bundle.");
+    }
 
     // Check bundle.identifier.value
     if (
@@ -167,11 +240,11 @@ let enhance = async () => {
             let { JSDOM } = jsdom;
             let dom = new JSDOM(htmlData);
             document = dom.window.document;
-            return insertQuestionnaireLink(categories, QUESTIONNAIRE_URL, document, response);
+            return insertQuestionnaireLink(categories, languageDetected, document, response);
             //listOfCategories, enhanceTag, document, response
         } else {
             document = window.document;
-            return insertQuestionnaireLink(categories, QUESTIONNAIRE_URL, document, response);
+            return insertQuestionnaireLink(categories, languageDetected, document, response);
         }
     };
 };
