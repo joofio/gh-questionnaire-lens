@@ -64,7 +64,7 @@
     ]
   },
   "date": "2024-06-12T13:40:03.690Z",
-  "title": "Interaction Lens",
+  "title": "Questionnaire Lens",
   "_title": {
     "extension": [
       {
@@ -76,7 +76,7 @@
           },
           {
             "url": "content",
-            "valueString": "Lente de Interacci\u00f3n"
+            "valueString": "Lente de Cuestionario"
           }
         ]
       },
