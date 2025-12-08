@@ -3,6 +3,33 @@ let htmlData = html;
 
 let epiData = epi;
 let ipsData = ips;
+// --- Language dictionary for user-facing messages ---
+const languageDict = {
+    en: {
+        childbearing: "You are seeing this because you are of childbearing age.",
+        pregnant: "You are seeing this because you are pregnant.",
+        breastfeeding: "You are seeing this because you are breastfeeding.",
+        consult: "If you are pregnant, breastfeeding, think you may be pregnant, or plan to have a baby, consult your doctor or pharmacist before using this medicine."
+    },
+    es: {
+        childbearing: "Ves esto porque estás en edad fértil.",
+        pregnant: "Ves esto porque estás embarazada.",
+        breastfeeding: "Ves esto porque estás amamantando.",
+        consult: "Si está embarazada, amamantando, cree que puede estar embarazada o planea tener un bebé, consulte a su médico o farmacéutico antes de usar este medicamento."
+    },
+    pt: {
+        childbearing: "Você está vendo isso porque está em idade fértil.",
+        pregnant: "Você está vendo isso porque está grávida.",
+        breastfeeding: "Você está vendo isso porque está amamentando.",
+        consult: "Se estiver grávida, amamentando, acha que pode estar grávida ou planeja ter um bebê, consulte seu médico ou farmacêutico antes de usar este medicamento."
+    },
+    da: {
+        childbearing: "Du ser dette, fordi du er i den fødedygtige alder.",
+        pregnant: "Du ser dette, fordi du er gravid.",
+        breastfeeding: "Du ser dette, fordi du ammer.",
+        consult: "Hvis du er gravid, ammer, tror du kan være gravid eller planlægger at få et barn, skal du kontakte din læge eller apotek, før du bruger dette lægemiddel."
+    }
+};
 
 let getSpecification = () => {
     return "2.0.3-questionnaire-banner";
@@ -249,7 +276,26 @@ let enhance = async () => {
     };
 };
 
+
+function getReport(lang) {
+    console.log("Generating report in language:", lang);
+    return { message: getExplanation(lang), status: "" };
+
+
+}
+
+// --- Get user-facing report sentence in the selected language ---
+function getExplanation(lang) {
+    console.log("Generating explanation in language:", lang);
+    return "";
+}
+
+// --- Exported API ---
 return {
     enhance: enhance,
     getSpecification: getSpecification,
+    explanation: (language) => getExplanation(language || lang),
+    report: (language) => getReport(language || lang),
 };
+
+
