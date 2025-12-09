@@ -29,6 +29,9 @@ const languageDict = {
     }
 };
 
+// State to track if questionnaire link was added
+let linkAdded = false;
+
 let getSpecification = () => {
     return "2.0.3-questionnaire-banner";
 };
@@ -208,11 +211,12 @@ let enhance = async () => {
 
     if (!matchFound) {
         console.log("ePI is not for a high-risk side effect medication");
+        linkAdded = false;
         return htmlData;
     }
 
     else {
-
+        linkAdded = true;
 
         let response = htmlData;
         let document;
@@ -246,19 +250,33 @@ let explanation = () => {
         language = epiData.language.toLowerCase();
     }
 
-    // Explanations in different languages
-    const explanations = {
-        en: "This lens identifies high-risk medications that may cause serious side effects. When a match is found based on the product or bundle identifier, it adds a link to a safety questionnaire. The link is placed in specific sections of the document when available (e.g., sections with relevant risk categories), or displayed as a warning banner at the top of the document if no specific section is found. This helps patients complete important safety assessments before using the medication.",
-        es: "Esta lente identifica medicamentos de alto riesgo que pueden causar efectos secundarios graves. Cuando se encuentra una coincidencia basada en el identificador del producto o del paquete, añade un enlace a un cuestionario de seguridad. El enlace se coloca en secciones específicas del documento cuando están disponibles (por ejemplo, secciones con categorías de riesgo relevantes), o se muestra como un banner de advertencia en la parte superior del documento si no se encuentra ninguna sección específica. Esto ayuda a los pacientes a completar evaluaciones de seguridad importantes antes de usar el medicamento.",
-        fr: "Cette lentille identifie les médicaments à haut risque pouvant provoquer des effets secondaires graves. Lorsqu'une correspondance est trouvée sur la base de l'identifiant du produit ou du bundle, elle ajoute un lien vers un questionnaire de sécurité. Le lien est placé dans des sections spécifiques du document lorsqu'elles sont disponibles (par exemple, des sections avec des catégories de risque pertinentes), ou affiché comme une bannière d'avertissement en haut du document si aucune section spécifique n'est trouvée. Cela aide les patients à effectuer des évaluations de sécurité importantes avant d'utiliser le médicament.",
-        de: "Diese Linse identifiziert Hochrisikomedikamente, die schwerwiegende Nebenwirkungen verursachen können. Wenn eine Übereinstimmung basierend auf der Produkt- oder Bundle-Kennung gefunden wird, fügt sie einen Link zu einem Sicherheitsfragebogen hinzu. Der Link wird in bestimmten Abschnitten des Dokuments platziert, wenn verfügbar (z. B. Abschnitte mit relevanten Risikokategorien), oder als Warnbanner oben im Dokument angezeigt, wenn kein bestimmter Abschnitt gefunden wird. Dies hilft Patienten, wichtige Sicherheitsbewertungen vor der Verwendung des Medikaments durchzuführen.",
-        it: "Questa lente identifica i farmaci ad alto rischio che possono causare gravi effetti collaterali. Quando viene trovata una corrispondenza basata sull'identificatore del prodotto o del bundle, aggiunge un collegamento a un questionario di sicurezza. Il collegamento viene inserito in sezioni specifiche del documento quando disponibili (ad esempio, sezioni con categorie di rischio pertinenti), oppure visualizzato come banner di avviso nella parte superiore del documento se non viene trovata alcuna sezione specifica. Questo aiuta i pazienti a completare valutazioni di sicurezza importanti prima di utilizzare il farmaco.",
-        pt: "Esta lente identifica medicamentos de alto risco que podem causar efeitos colaterais graves. Quando uma correspondência é encontrada com base no identificador do produto ou do pacote, adiciona um link para um questionário de segurança. O link é colocado em seções específicas do documento quando disponíveis (por exemplo, seções com categorias de risco relevantes), ou exibido como um banner de aviso no topo do documento se nenhuma seção específica for encontrada. Isso ajuda os pacientes a concluir avaliações de segurança importantes antes de usar o medicamento.",
-        nl: "Deze lens identificeert geneesmiddelen met een hoog risico die ernstige bijwerkingen kunnen veroorzaken. Wanneer een overeenkomst wordt gevonden op basis van het product- of bundle-identificatienummer, voegt het een link toe naar een veiligheidsvragenlijst. De link wordt in specifieke secties van het document geplaatst wanneer deze beschikbaar zijn (bijv. secties met relevante risicocategorieën), of weergegeven als een waarschuwingsbanner bovenaan het document als er geen specifieke sectie wordt gevonden. Dit helpt patiënten belangrijke veiligheidsbeoordelingen uit te voeren voordat ze het medicijn gebruiken."
+    // Simple, patient-friendly explanations in different languages
+    const explanationsAdded = {
+        en: "A link to a safety questionnaire has been added to help you assess if this medication is safe for you.",
+        es: "Se ha añadido un enlace a un cuestionario de seguridad para ayudarle a evaluar si este medicamento es seguro para usted.",
+        fr: "Un lien vers un questionnaire de sécurité a été ajouté pour vous aider à évaluer si ce médicament est sûr pour vous.",
+        de: "Ein Link zu einem Sicherheitsfragebogen wurde hinzugefügt, um Ihnen zu helfen festzustellen, ob dieses Medikament für Sie sicher ist.",
+        it: "È stato aggiunto un collegamento a un questionario di sicurezza per aiutarti a valutare se questo farmaco è sicuro per te.",
+        pt: "Foi adicionado um link para um questionário de segurança para ajudá-lo a avaliar se este medicamento é seguro para você.",
+        nl: "Er is een link naar een veiligheidsvragenlijst toegevoegd om u te helpen beoordelen of dit medicijn veilig voor u is."
     };
 
-    // Return explanation in the ePI language, default to English if not found
-    return explanations[language] || explanations.en;
+    const explanationsNotAdded = {
+        en: "Your profile does not match the conditions to add a questionnaire link.",
+        es: "Su perfil no coincide con las condiciones para añadir un enlace al cuestionario.",
+        fr: "Votre profil ne correspond pas aux conditions pour ajouter un lien vers le questionnaire.",
+        de: "Ihr Profil erfüllt nicht die Bedingungen für das Hinzufügen eines Fragebogen-Links.",
+        it: "Il tuo profilo non corrisponde alle condizioni per aggiungere un collegamento al questionario.",
+        pt: "Seu perfil não corresponde às condições para adicionar um link para o questionário.",
+        nl: "Uw profiel voldoet niet aan de voorwaarden om een vragenlijstlink toe te voegen."
+    };
+
+    // Return explanation based on whether link was added, in the ePI language
+    if (linkAdded) {
+        return explanationsAdded[language] || explanationsAdded.en;
+    } else {
+        return explanationsNotAdded[language] || explanationsNotAdded.en;
+    }
 };
 
 return {
