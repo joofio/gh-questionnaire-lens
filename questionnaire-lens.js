@@ -3,57 +3,50 @@ let htmlData = html;
 
 let epiData = epi;
 let ipsData = ips;
+let lang = "";  // Default language, will be set by ePI
+
 // --- Language dictionary for user-facing messages ---
 const languageDict = {
     en: {
-        childbearing: "You are seeing this because you are of childbearing age.",
-        pregnant: "You are seeing this because you are pregnant.",
-        breastfeeding: "You are seeing this because you are breastfeeding.",
-        consult: "If you are pregnant, breastfeeding, think you may be pregnant, or plan to have a baby, consult your doctor or pharmacist before using this medicine."
+        bannerWarning: "⚠️ This medication may cause high-risk side effects.",
+        questionnaireLink: "Fill out safety questionnaire",
+        fillQuestionnaire: "📝 Fill out safety questionnaire"
     },
     es: {
-        childbearing: "Ves esto porque estás en edad fértil.",
-        pregnant: "Ves esto porque estás embarazada.",
-        breastfeeding: "Ves esto porque estás amamantando.",
-        consult: "Si está embarazada, amamantando, cree que puede estar embarazada o planea tener un bebé, consulte a su médico o farmacéutico antes de usar este medicamento."
+        bannerWarning: "⚠️ Este medicamento puede causar efectos secundarios de alto riesgo.",
+        questionnaireLink: "Rellenar cuestionario de seguridad",
+        fillQuestionnaire: "📝 Rellenar cuestionario de seguridad"
     },
     pt: {
-        childbearing: "Você está vendo isso porque está em idade fértil.",
-        pregnant: "Você está vendo isso porque está grávida.",
-        breastfeeding: "Você está vendo isso porque está amamentando.",
-        consult: "Se estiver grávida, amamentando, acha que pode estar grávida ou planeja ter um bebê, consulte seu médico ou farmacêutico antes de usar este medicamento."
+        bannerWarning: "⚠️ Este medicamento pode causar efeitos secundários de alto risco.",
+        questionnaireLink: "Preencher questionário de segurança",
+        fillQuestionnaire: "📝 Preencher questionário de segurança"
     },
     da: {
-        childbearing: "Du ser dette, fordi du er i den fødedygtige alder.",
-        pregnant: "Du ser dette, fordi du er gravid.",
-        breastfeeding: "Du ser dette, fordi du ammer.",
-        consult: "Hvis du er gravid, ammer, tror du kan være gravid eller planlægger at få et barn, skal du kontakte din læge eller apotek, før du bruger dette lægemiddel."
+        bannerWarning: "⚠️ Denne medicin kan forårsage alvorlige bivirkninger.",
+        questionnaireLink: "Udfyld sikkerhedsspørgeskema",
+        fillQuestionnaire: "📝 Udfyld sikkerhedsspørgeskema"
     }
 };
 
 let getSpecification = () => {
     return "2.0.3-questionnaire-banner";
 };
+
+// --- Utility: Get language key from detected language ---
+const getLangKey = (language) => {
+    if (language?.startsWith("pt")) return "pt";
+    if (language?.startsWith("es")) return "es";
+    if (language?.startsWith("da")) return "da";
+    return "en"; // Default to English
+};
+
 //document, htmlData, bannerHTML
 //
 const insertQuestionnaireLink = (listOfCategories, language, document, response) => {
-
-    if (language?.startsWith("pt")) {
-        linkHTML = "https://example.org/questionnaire/high-risk";
-
-    } else if (language?.startsWith("en")) {
-        linkHTML = "https://example.org/questionnaire/high-risk";
-
-    } else if (language?.startsWith("es")) {
-        linkHTML = "https://example.org/questionnaire/high-risk";
-
-    } else if (language?.startsWith("da")) {
-        linkHTML = "https://example.org/questionnaire/high-risk";
-
-    } else {
-        linkHTML = "https://example.org/questionnaire/high-risk";
-
-    }
+    const langKey = getLangKey(language);
+    const messages = languageDict[langKey];
+    const linkHTML = "https://example.org/questionnaire/high-risk";
     let shouldAppend = false; //for future usage
     let foundCategory = false;
     console.log(listOfCategories)
@@ -73,7 +66,7 @@ const insertQuestionnaireLink = (listOfCategories, language, document, response)
 
                 if (shouldAppend) {
                     // Append the link as a new element inside the existing element
-                    link.innerHTML = "📝 Fill out safety questionnaire";
+                    link.innerHTML = messages.fillQuestionnaire;
                     el.appendChild(link);
                 } else {
                     // Wrap the existing contents of the element in the link
@@ -88,50 +81,13 @@ const insertQuestionnaireLink = (listOfCategories, language, document, response)
 
     // No matching category tags → inject banner at top
     if (!foundCategory) {
-
         const bannerDiv = document.createElement("div");
-
-        if (language?.startsWith("pt")) {
-            bannerDiv.innerHTML = `
-       <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
-  ⚠️ Este medicamento pode causar efeitos secundários de alto risco.
-  <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Preencher questionário de segurança</a>
-</div>
-      `;
-
-        } else if (language?.startsWith("en")) {
-            bannerDiv.innerHTML = `
-        <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
-          ⚠️ This medication may cause high-risk side effects.
-          <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Fill out safety questionnaire</a>
-        </div>
-      `;
-
-        } else if (language?.startsWith("es")) {
-            bannerDiv.innerHTML = `
-       <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
-  ⚠️ Este medicamento puede causar efectos secundarios de alto riesgo.
-  <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Rellenar cuestionario de seguridad</a>
-</div>
-      `;
-        } else if (language?.startsWith("da")) {
-            bannerDiv.innerHTML = `
-      <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
-  ⚠️ Denne medicin kan forårsage alvorlige bivirkninger.
-  <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Udfyld sikkerhedsspørgeskema</a>
-</div>
-      `;
-        } else {
-            bannerDiv.innerHTML = `
-        <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
-          ⚠️ This medication may cause high-risk side effects.
-          <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">Fill out safety questionnaire</a>
-        </div>
-      `;
-
-        }
-
-
+        bannerDiv.innerHTML = `
+            <div class="alert-banner questionnaire-lens" style="background-color:#ffdddd;padding:1em;border:1px solid #ff8888;margin-bottom:1em;">
+                ${messages.bannerWarning}
+                <a href="${linkHTML}" target="_blank" style="margin-left: 1em;">${messages.questionnaireLink}</a>
+            </div>
+        `;
 
         const body = document.querySelector("body");
         if (body) {
@@ -173,25 +129,24 @@ let enhance = async () => {
 
 
     let matchFound = false;
-    let languageDetected = null;
 
     // 1. Check Composition.language
     epiData.entry?.forEach((entry) => {
         const res = entry.resource;
         if (res?.resourceType === "Composition" && res.language) {
-            languageDetected = res.language;
-            console.log("🌍 Detected from Composition.language:", languageDetected);
+            lang = res.language;
+            console.log("🌍 Detected from Composition.language:", lang);
         }
     });
 
     // 2. If not found, check Bundle.language
-    if (!languageDetected && epiData.language) {
-        languageDetected = epiData.language;
-        console.log("🌍 Detected from Bundle.language:", languageDetected);
+    if (!lang && epiData.language) {
+        lang = epiData.language;
+        console.log("🌍 Detected from Bundle.language:", lang);
     }
 
     // 3. Fallback message
-    if (!languageDetected) {
+    if (!lang) {
         console.warn("⚠️ No language detected in Composition or Bundle.");
     }
 
@@ -267,11 +222,11 @@ let enhance = async () => {
             let { JSDOM } = jsdom;
             let dom = new JSDOM(htmlData);
             document = dom.window.document;
-            return insertQuestionnaireLink(categories, languageDetected, document, response);
+            return insertQuestionnaireLink(categories, lang, document, response);
             //listOfCategories, enhanceTag, document, response
         } else {
             document = window.document;
-            return insertQuestionnaireLink(categories, languageDetected, document, response);
+            return insertQuestionnaireLink(categories, lang, document, response);
         }
     };
 };
