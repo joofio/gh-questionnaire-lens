@@ -29,6 +29,9 @@ const languageDict = {
     }
 };
 
+// State to track if questionnaire link was added
+let linkAdded = false;
+
 let getSpecification = () => {
     return "2.0.3-questionnaire-banner";
 };
@@ -208,11 +211,12 @@ let enhance = async () => {
 
     if (!matchFound) {
         console.log("ePI is not for a high-risk side effect medication");
+        linkAdded = false;
         return htmlData;
     }
 
     else {
-
+        linkAdded = true;
 
         let response = htmlData;
         let document;
@@ -239,13 +243,42 @@ function getReport(lang) {
 
 }
 
-// --- Get user-facing report sentence in the selected language ---
-function getExplanation(lang) {
-    console.log("Generating explanation in language:", lang);
-    return "";
-}
+let explanation = () => {
+    // Extract language from ePI
+    let language = "en"; // default to English
+    if (epiData && epiData.language) {
+        language = epiData.language.toLowerCase();
+    }
 
-// --- Exported API ---
+    // Simple, patient-friendly explanations in different languages
+    const explanationsAdded = {
+        en: "A link to a safety questionnaire has been added to help you assess if this medication is safe for you.",
+        es: "Se ha añadido un enlace a un cuestionario de seguridad para ayudarle a evaluar si este medicamento es seguro para usted.",
+        fr: "Un lien vers un questionnaire de sécurité a été ajouté pour vous aider à évaluer si ce médicament est sûr pour vous.",
+        de: "Ein Link zu einem Sicherheitsfragebogen wurde hinzugefügt, um Ihnen zu helfen festzustellen, ob dieses Medikament für Sie sicher ist.",
+        it: "È stato aggiunto un collegamento a un questionario di sicurezza per aiutarti a valutare se questo farmaco è sicuro per te.",
+        pt: "Foi adicionado um link para um questionário de segurança para ajudá-lo a avaliar se este medicamento é seguro para você.",
+        nl: "Er is een link naar een veiligheidsvragenlijst toegevoegd om u te helpen beoordelen of dit medicijn veilig voor u is."
+    };
+
+    const explanationsNotAdded = {
+        en: "Your profile does not match the conditions to add a questionnaire link.",
+        es: "Su perfil no coincide con las condiciones para añadir un enlace al cuestionario.",
+        fr: "Votre profil ne correspond pas aux conditions pour ajouter un lien vers le questionnaire.",
+        de: "Ihr Profil erfüllt nicht die Bedingungen für das Hinzufügen eines Fragebogen-Links.",
+        it: "Il tuo profilo non corrisponde alle condizioni per aggiungere un collegamento al questionario.",
+        pt: "Seu perfil não corresponde às condições para adicionar um link para o questionário.",
+        nl: "Uw profiel voldoet niet aan de voorwaarden om een vragenlijstlink toe te voegen."
+    };
+
+    // Return explanation based on whether link was added, in the ePI language
+    if (linkAdded) {
+        return explanationsAdded[language] || explanationsAdded.en;
+    } else {
+        return explanationsNotAdded[language] || explanationsNotAdded.en;
+    }
+};
+
 return {
     enhance: enhance,
     getSpecification: getSpecification,
