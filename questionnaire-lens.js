@@ -6,7 +6,7 @@ let ipsData = ips;
 let lang = "";  // Default language, will be set by ePI
 
 // --- Language dictionary for user-facing messages ---
-const languageDict = {
+const messageDict = {
     en: {
         bannerWarning: "⚠️ This medication may cause high-risk side effects.",
         questionnaireLink: "Fill out safety questionnaire",
@@ -48,7 +48,7 @@ const getLangKey = (language) => {
 //
 const insertQuestionnaireLink = (listOfCategories, language, document, response) => {
     const langKey = getLangKey(language);
-    const messages = languageDict[langKey];
+    const messages = messageDict[langKey];
     const linkHTML = "https://example.org/questionnaire/high-risk";
     let shouldAppend = false; //for future usage
     let foundCategory = false;
@@ -239,8 +239,6 @@ let enhance = async () => {
 function getReport(lang) {
     console.log("Generating report in language:", lang);
     return { message: getExplanation(lang), status: "" };
-
-
 }
 
 let explanation = () => {
