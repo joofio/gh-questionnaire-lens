@@ -31,7 +31,7 @@
           },
           {
             "url": "content",
-            "valueString": "Lente de Cuestionario"
+            "valueString": "Lente de medicamentos de alto riesgo"
           }
         ]
       },
@@ -44,7 +44,7 @@
           },
           {
             "url": "content",
-            "valueString": "Lente de Interação"
+            "valueString": "Lente de medicamentos de alto risco"
           }
         ]
       },
@@ -57,7 +57,7 @@
           },
           {
             "url": "content",
-            "valueString": "Interaktionslinse"
+            "valueString": "Højrisiko medicin linse"
           }
         ]
       }
@@ -76,7 +76,7 @@
           },
           {
             "url": "content",
-            "valueString": "Lente de Cuestionario"
+            "valueString": "Lente de cuestionario de seguridad"
           }
         ]
       },
@@ -89,7 +89,7 @@
           },
           {
             "url": "content",
-            "valueString": "Lente de Interação"
+            "valueString": "Lente de questionário de segurança"
           }
         ]
       },
@@ -102,7 +102,7 @@
           },
           {
             "url": "content",
-            "valueString": "Interaktionslinse"
+            "valueString": "Sikkerhedsspørgeskema linse"
           }
         ]
       }
@@ -129,7 +129,7 @@
       ]
     }
   ],
-  "description": "A lens that highlight any information related to interactions between other mediciones or ePIs",
+  "description": "A lens that adds safety questionnaire links for high-risk medications that may cause serious side effects",
   "_description": {
     "extension": [
       {
@@ -141,7 +141,7 @@
           },
           {
             "url": "content",
-            "valueString": "Una lente que resalta cualquier información relacionada con interacciones entre otros medicamentos o ePIs."
+            "valueString": "Una lente que añade enlaces a cuestionarios de seguridad para medicamentos de alto riesgo que pueden causar efectos secundarios graves."
           }
         ]
       },
@@ -154,7 +154,7 @@
           },
           {
             "url": "content",
-            "valueString": "Uma lente que destaca qualquer informação relacionada com interações entre outros medicamentos ou ePIs."
+            "valueString": "Uma lente que adiciona links para questionários de segurança para medicamentos de alto risco que podem causar efeitos secundários graves."
           }
         ]
       },
@@ -167,7 +167,7 @@
           },
           {
             "url": "content",
-            "valueString": "En linse, der fremhæver al information relateret til interaktioner mellem andre lægemidler eller ePI'er."
+            "valueString": "En linse der tilføjer links til sikkerhedsspørgeskemaer for højrisiko medicin der kan forårsage alvorlige bivirkninger."
           }
         ]
       }
@@ -183,7 +183,7 @@
       ]
     }
   ],
-  "purpose": "Clarify the important things related to interactions between other ePIs in the ePI provided",
+  "purpose": "Add safety questionnaire links to ePIs for high-risk medications to help patients report side effects",
   "_purpose": {
     "extension": [
       {
@@ -195,7 +195,7 @@
           },
           {
             "url": "content",
-            "valueString": "Aclarar los aspectos importantes relacionados con interacciones entre otros ePIs en el ePI proporcionado."
+            "valueString": "Añadir enlaces a cuestionarios de seguridad en ePIs para medicamentos de alto riesgo para ayudar a los pacientes a reportar efectos secundarios."
           }
         ]
       },
@@ -208,7 +208,7 @@
           },
           {
             "url": "content",
-            "valueString": "Esclarecer os pontos importantes relacionados com interações entre outros ePIs no ePI fornecido."
+            "valueString": "Adicionar links para questionários de segurança em ePIs para medicamentos de alto risco para ajudar os pacientes a reportar efeitos secundários."
           }
         ]
       },
@@ -221,7 +221,7 @@
           },
           {
             "url": "content",
-            "valueString": "Klargør de vigtige ting vedrørende interaktioner mellem andre ePI'er i den angivne ePI."
+            "valueString": "Tilføj links til sikkerhedsspørgeskemaer i ePI'er for højrisiko medicin for at hjælpe patienter med at rapportere bivirkninger."
           }
         ]
       }
