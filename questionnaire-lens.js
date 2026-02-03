@@ -236,17 +236,15 @@ let enhance = async () => {
 };
 
 
-function getReport(lang) {
+function getReport(lang = "en") {
     console.log("Generating report in language:", lang);
     return { message: getExplanation(lang), status: "" };
 }
 
-let explanation = () => {
-    // Extract language from ePI
-    let language = "en"; // default to English
-    if (epiData && epiData.language) {
-        language = epiData.language.toLowerCase();
-    }
+// --- Get user-facing report sentence in the selected language ---
+function getExplanation(language = "en") {
+    // Normalize language to lowercase
+    language = language?.toLowerCase() || "en";
 
     // Simple, patient-friendly explanations in different languages
     const explanationsAdded = {
@@ -275,13 +273,14 @@ let explanation = () => {
     } else {
         return explanationsNotAdded[language] || explanationsNotAdded.en;
     }
-};
+}
 
+// --- Exported API ---
 return {
     enhance: enhance,
     getSpecification: getSpecification,
-    explanation: (language) => getExplanation(language || lang),
-    report: (language) => getReport(language || lang),
+    explanation: (language) => getExplanation(language || lang || "en"),
+    report: (language) => getReport(language || lang || "en"),
 };
 
 
