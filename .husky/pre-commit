@@ -6,3 +6,7 @@ lens-tool-bundler bundle questionnaire-lens.json -u
 # Run tests
 
 npm test
+
+# re-add modified files
+
+git add -A
