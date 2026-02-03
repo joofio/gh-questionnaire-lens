@@ -1,7 +1,6 @@
 # Encode JS to base64 and update JSON
 
-lens-tool-bundler bundle questionnaire-lens.js -u  
-lens-tool-bundler bundle questionnaire-lens.json -u  
+lens-tool-bundler batch-bundle --exclude data -f
 
 # Run tests
 
